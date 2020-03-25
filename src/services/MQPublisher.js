@@ -27,6 +27,11 @@ process.on('exit', (code) => {
   console.log('Closing rabbitmq channel publisher');
 });
 
+process.on('error', (code) => {
+  if (ch) {ch.close(); }
+  console.log('On error closing rabbitmq channel publisher')
+})
+
 module.exports = {
   publishToQueue
 };

@@ -23,11 +23,14 @@ const server = app.listen(app.get('port'), () => {
 // websockets
 const io = require('socket.io').listen(server);
 
+// listening for rebbitMQ consumer
+mqConsumer.startConsumer(io);
+
+/*
 io.on('connection', () => {
   console.log('New conection');
 });
-
-
+*/
 // static files
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -50,6 +53,3 @@ app.use((req, res, next) => {
     });
   }
 });
-
-// listening for rebbitMQ consumer
-mqConsumer.connect();
