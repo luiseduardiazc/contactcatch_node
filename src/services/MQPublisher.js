@@ -16,9 +16,11 @@ async function connect () {
 }
 
 async function publishToQueue (queueName, data) {
-  if (!ch) { ch = await connect(); }
+  //if (!ch) { ch = await connect(); }
+  ch = await connect()
   data.task_id = uuid();
   ch.sendToQueue(queueName, Buffer.from(JSON.stringify(data)));
+  ch.close()
   return data.task_id;
 }
 
