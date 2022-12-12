@@ -12,7 +12,7 @@
   "dependencies": {
     "amqplib": "^0.5.5",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "filenamify-url": "^2.1.1",
     "jsonexport": "^2.4.1",
     "puppeteer": "^2.1.1",
